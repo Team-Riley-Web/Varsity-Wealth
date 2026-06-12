@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @config "../../tailwind.config.cjs";
 
+@font-face {
+  font-family: "Noto Serif Display ExtraCondensed";
+  src: url("/fonts/noto-serif-display-extra-condensed.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
