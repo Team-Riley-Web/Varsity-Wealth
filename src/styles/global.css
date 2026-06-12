@@ -31,6 +31,31 @@
 }
 
 @layer utilities {
+  @keyframes animated_text {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animated-text {
+    background: linear-gradient(-45deg, #8f6f2f, #b79a5b, #f0d27a, #a8843d);
+    background-size: 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animated_text 10s ease-in-out infinite;
+    -moz-animation: animated_text 10s ease-in-out infinite;
+    -webkit-animation: animated_text 10s ease-in-out infinite;
+  }
+
   .reveal-start {
     opacity: 0;
     transform: translateY(22px);
