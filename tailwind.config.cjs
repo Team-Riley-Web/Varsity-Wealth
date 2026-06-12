@@ -12,7 +12,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        serif: ['Noto Serif Display ExtraCondensed', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
+        serif: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
       },
       boxShadow: {
         soft: '0 24px 80px rgba(17, 21, 28, 0.12)',

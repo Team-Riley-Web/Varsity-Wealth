@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { ArrowRight } from '@lucide/astro';
 import wordmark from '../assets/images/varsity-wordmark.png';
 
 const links = [
@@ -10,7 +11,29 @@ const links = [
 ];
 ---
 
-<footer id="connect" class="bg-ink text-white">
+<section id="connect" class="border-b border-white/12 bg-ink px-5 py-20 text-white lg:px-8 lg:py-24">
+  <div
+    class="mx-auto flex max-w-4xl flex-col items-center text-center"
+    x-data="{ shown: false }"
+    x-intersect.once="shown = true"
+    :class="shown ? 'reveal-in' : 'reveal-start'"
+  >
+    <p class="section-kicker">Connect</p>
+    <h2 class="mt-4 max-w-2xl font-serif text-5xl leading-tight text-white sm:text-6xl lg:text-7xl">
+      Raising the standard, <em class="text-brass">together.</em>
+    </h2>
+    <p class="mt-6 max-w-2xl text-lg leading-8 text-white/68">
+      Personalized wealth strategies begin with a conversation, fiduciary clarity, disciplined planning, and family-office-level coordination from the first meeting.
+    </p>
+    <!-- TODO: Replace with client contact destination when provided. -->
+    <a href="#" class="mt-8 inline-flex min-h-12 items-center gap-2 bg-brass px-7 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-white">
+      Contact Us
+      <ArrowRight class="size-4" />
+    </a>
+  </div>
+</section>
+
+<footer class="bg-ink text-white">
   <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-[1fr_1.45fr] lg:px-8 lg:py-18">
     <div>
       <Image
