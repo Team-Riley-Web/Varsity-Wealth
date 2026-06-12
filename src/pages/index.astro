@@ -1,0 +1,334 @@
+---
+import { Image } from 'astro:assets';
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  Building2,
+  ChartLine,
+  CircleCheck,
+  CircleDollarSign,
+  Landmark,
+  Network,
+  Scale,
+  ShieldCheck,
+  Users,
+} from '@lucide/astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import emblem from '../assets/images/varsity-emblem.png';
+import heroCity from '../assets/images/hero-city.jpg';
+
+const heroVideo = 'https://video.wixstatic.com/video/11062b_d21ff9e8cce1426fbd4f218f64fe884d/1080p/mp4/file.mp4';
+
+const pillars = [
+  {
+    title: 'Fiduciary Structure',
+    copy: 'An unwavering commitment to act solely in your best interest, backed by legal stewardship and total transparency in every directive.',
+    icon: Scale,
+  },
+  {
+    title: 'Independent Fee-Only Wealth Management',
+    copy: 'Free from product-based incentives, our independent, fee-only structure supports objective advice aligned with long-term and generational planning.',
+    icon: CircleDollarSign,
+  },
+  {
+    title: 'Family Office Level Approach',
+    copy: 'We act as a trusted partner to your family, delivering an institutional-grade, architected approach to coordinating wealth across generations.',
+    icon: Building2,
+  },
+];
+
+const traditional = [
+  'Conflicted, transactional fee structures.',
+  'Misaligned legacy incentives and product-prioritization.',
+  'Fragmented advice between siloed advisor networks.',
+  'Institutional focus on short-term market performance.',
+];
+
+const varsity = [
+  'Transparent, independent, fee-only fiduciary alignment.',
+  'Conflict-free strategic orchestration across all assets.',
+  'Integrated multi-disciplinary generational stewardship.',
+  'Bespoke family office advisory with total capital clarity.',
+];
+
+const audiences = [
+  {
+    title: 'Families & Entrepreneurs Building MultiGenerational Wealth',
+    copy: 'Tailored financial strategies for founding entrepreneurs and high-net-worth lineages seeking to institutionalize their legacy with absolute precision.',
+    icon: Users,
+  },
+  {
+    title: 'Clients Requiring Coordinated Private Advisory',
+    copy: 'Sophisticated orchestration for clients with global footprints requiring seamless coordination across multi-jurisdictional private advisory ecosystems.',
+    icon: Network,
+  },
+];
+
+const services = [
+  {
+    title: 'Private Advisory',
+    copy: 'Acting as your primary fiduciary and family office coordinator to oversee governance, tax efficiency, and global reporting.',
+    icon: BriefcaseBusiness,
+  },
+  {
+    title: 'Asset Management',
+    copy: 'Exclusive access to institutional-grade investment vehicles and custom-tailored portfolios designed for absolute risk management.',
+    icon: ChartLine,
+  },
+  {
+    title: 'Legacy Planning',
+    copy: "Architecting multi-generational wealth transfer strategies that preserve both your capital and your family's core values long-term.",
+    icon: Landmark,
+  },
+];
+---
+
+<BaseLayout>
+  <Header />
+  <main id="home">
+    <section class="relative isolate min-h-[92svh] overflow-hidden bg-ink text-white">
+      <video
+        class="absolute inset-0 size-full object-cover opacity-[0.58]"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster={heroCity.src}
+        aria-label="Cityscapes and architecture"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(17,21,28,0.9),rgba(17,21,28,0.58)_48%,rgba(17,21,28,0.22))]"></div>
+      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink to-transparent"></div>
+
+      <div class="relative mx-auto flex min-h-[92svh] max-w-7xl flex-col justify-end px-5 pb-16 pt-36 lg:px-8 lg:pb-22">
+        <div
+          class="max-w-4xl"
+          x-data="{ shown: false }"
+          x-intersect.once="shown = true"
+          :class="shown ? 'reveal-in' : 'reveal-start'"
+        >
+          <Image
+            src={emblem}
+            alt="Varsity Wealth emblem"
+            widths={[220, 360, 520]}
+            sizes="(min-width: 1024px) 360px, 220px"
+            priority
+            class="mb-7 h-auto w-44 sm:w-60 lg:w-72"
+          />
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-brass">Independent Fee-Only Wealth Management</p>
+          <h1 class="font-serif text-5xl leading-[0.98] text-white sm:text-7xl lg:text-[6.7rem]">Raising the standard</h1>
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-white/78 sm:text-xl">
+            Personalized wealth strategies aligned with your financial goals, built around fiduciary clarity, disciplined planning, and family-office-level coordination.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-varsity" class="bg-ink px-5 pb-16 text-white lg:px-8 lg:pb-24">
+      <div class="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">
+        {pillars.map(({ title, copy, icon: Icon }) => (
+          <article
+            class="bg-white/[0.055] p-7 shadow-panel backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/[0.085] sm:p-8"
+            x-data="{ shown: false }"
+            x-intersect.once="shown = true"
+            :class="shown ? 'reveal-in' : 'reveal-start'"
+          >
+            <Icon class="mb-8 size-9 text-brass" stroke-width={1.5} />
+            <h2 class="max-w-xs font-serif text-3xl leading-tight text-white">{title}</h2>
+            <div class="my-6 h-px w-16 bg-brass/70"></div>
+            <p class="text-base leading-7 text-white/68">{copy}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="about" class="bg-parchment px-5 py-18 lg:px-8 lg:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div
+          class="relative"
+          x-data="{ shown: false }"
+          x-intersect.once="shown = true"
+          :class="shown ? 'reveal-in' : 'reveal-start'"
+        >
+          <Image
+            src={heroCity}
+            alt="Architectural city skyline representing private wealth planning"
+            widths={[520, 720, 960]}
+            sizes="(min-width: 1024px) 44vw, 100vw"
+            class="aspect-[4/5] w-full object-cover shadow-soft"
+          />
+          <div class="absolute -bottom-6 -right-4 bg-ink px-6 py-5 text-white shadow-panel sm:right-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brass">The Varsity Standard</p>
+            <p class="mt-2 font-serif text-2xl">Precision with discretion</p>
+          </div>
+        </div>
+
+        <div
+          class="max-w-2xl lg:pl-6"
+          x-data="{ shown: false }"
+          x-intersect.once="shown = true"
+          :class="shown ? 'reveal-in' : 'reveal-start'"
+        >
+          <p class="section-kicker">Personalized Wealth Strategies</p>
+          <h2 class="section-title">Aligned with your financial goals.</h2>
+          <p class="mt-7 text-lg leading-8 text-graphite">
+            At the core of our approach is a commitment to developing thoughtful, personalized wealth strategies tailored to your unique goals, time horizon, and overall financial picture.
+          </p>
+          <p class="mt-5 text-lg leading-8 text-graphite/82">
+            We combine careful planning with time-tested principles to help you navigate each stage of your financial journey with clarity and confidence. Whether your focus is on growth, income, or long-term planning, our strategies are designed to keep you aligned with your objectives and moving forward with purpose.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-mist px-5 py-18 lg:px-8 lg:py-26">
+      <div class="mx-auto max-w-7xl">
+        <p class="section-kicker">What We Do</p>
+        <div class="mt-8 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-stretch">
+          <article
+            class="bg-white/70 p-8 shadow-soft sm:p-10"
+            x-data="{ shown: false }"
+            x-intersect.once="shown = true"
+            :class="shown ? 'reveal-in' : 'reveal-start'"
+          >
+            <h2 class="font-serif text-4xl text-graphite">Traditional Model</h2>
+            <ul class="mt-8 space-y-5">
+              {traditional.map((item) => (
+                <li class="flex gap-4 text-base leading-7 text-graphite/74">
+                  <span class="mt-3 h-px w-8 shrink-0 bg-graphite/35"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <div class="flex items-center justify-center">
+            <div class="grid size-20 place-items-center rounded-full bg-ink font-serif text-2xl text-brass shadow-soft">VS</div>
+          </div>
+
+          <article
+            class="bg-ink p-8 text-white shadow-panel sm:p-10"
+            x-data="{ shown: false }"
+            x-intersect.once="shown = true"
+            :class="shown ? 'reveal-in' : 'reveal-start'"
+          >
+            <h2 class="font-serif text-4xl text-white">The Varsity Standard</h2>
+            <ul class="mt-8 space-y-5">
+              {varsity.map((item) => (
+                <li class="flex gap-4 text-base leading-7 text-white/74">
+                  <CircleCheck class="mt-1 size-5 shrink-0 text-brass" stroke-width={1.8} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-parchment px-5 py-18 lg:px-8 lg:py-26">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p class="section-kicker">Who We Serve</p>
+            <h2 class="section-title mt-3">Built for complex private wealth.</h2>
+          </div>
+          <a href="#connect" class="inline-flex w-fit items-center gap-2 bg-ink px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-brass hover:text-ink">
+            Contact Us
+            <ArrowRight class="size-4" />
+          </a>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+          {audiences.map(({ title, copy, icon: Icon }) => (
+            <article
+              class="bg-white p-8 shadow-soft sm:p-10"
+              x-data="{ shown: false }"
+              x-intersect.once="shown = true"
+              :class="shown ? 'reveal-in' : 'reveal-start'"
+            >
+              <Icon class="mb-8 size-10 text-brass" stroke-width={1.5} />
+              <h3 class="max-w-xl font-serif text-3xl leading-tight text-ink">{title}</h3>
+              <p class="mt-5 max-w-2xl text-base leading-7 text-graphite/80">{copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="bg-ink px-5 py-18 text-white lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl">
+          <p class="section-kicker text-brass">An Elite Approach to Wealth Stewardship</p>
+          <h2 class="mt-3 font-serif text-4xl leading-tight text-white sm:text-6xl">Institutional discipline, private-office attention.</h2>
+        </div>
+
+        <div class="mt-12 grid gap-5 lg:grid-cols-3">
+          {services.map(({ title, copy, icon: Icon }) => (
+            <article
+              class="bg-white/[0.055] p-8 shadow-panel"
+              x-data="{ shown: false }"
+              x-intersect.once="shown = true"
+              :class="shown ? 'reveal-in' : 'reveal-start'"
+            >
+              <Icon class="mb-8 size-9 text-brass" stroke-width={1.5} />
+              <h3 class="font-serif text-3xl text-white">{title}</h3>
+              <p class="mt-5 text-base leading-7 text-white/68">{copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-parchment px-5 py-18 lg:px-8 lg:py-28">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div
+          class="relative"
+          x-data="{ shown: false }"
+          x-intersect.once="shown = true"
+          :class="shown ? 'reveal-in' : 'reveal-start'"
+        >
+          <Image
+            src={heroCity}
+            alt="Refined city architecture symbolizing legacy wealth stewardship"
+            widths={[520, 720, 960]}
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            class="aspect-[4/5] w-full object-cover shadow-soft"
+          />
+          <div class="absolute left-6 top-6 grid size-16 place-items-center bg-ink/90 text-brass shadow-panel backdrop-blur-sm">
+            <ShieldCheck class="size-8" stroke-width={1.3} />
+          </div>
+        </div>
+
+        <div class="space-y-14">
+          <article>
+            <p class="section-kicker">The Varsity Standard</p>
+            <h2 class="section-title mt-3">A legacy of precision.</h2>
+            <p class="mt-7 text-lg leading-8 text-graphite">
+              Wealth is more than a metric; it is a narrative of achievement. We serve as the primary architect for your family's financial future, balancing institutional-grade discipline with the bespoke attention of a private family office.
+            </p>
+            <p class="mt-5 text-lg leading-8 text-graphite/82">
+              Our commitment is rooted in absolute discretion and the relentless pursuit of preservation across generations.
+            </p>
+          </article>
+
+          <article class="bg-white p-8 shadow-soft sm:p-10">
+            <p class="section-kicker">The Sentinel of Your Private Legacy</p>
+            <h2 class="mt-3 font-serif text-4xl leading-tight text-ink">Comprehensive advisory for multi-generational families.</h2>
+            <p class="mt-7 text-lg leading-8 text-graphite/82">
+              Varsity Wealth provides comprehensive advisory services for multi-generational families who require an elite level of stewardship. As a private financial planning boutique, we act as your dedicated family office, orchestrating complex portfolios with absolute precision and uncompromised discretion.
+            </p>
+            <p class="mt-5 text-lg leading-8 text-graphite/82">
+              Our history is defined by the preservation of wealth across shifting global markets, ensuring that your foundation remains unshakeable for generations to come.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

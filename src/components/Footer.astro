@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import wordmark from '../assets/images/varsity-wordmark.png';
+
+const links = [
+  { label: 'Privacy Policy', href: 'https://meridianwealthllc.com/privacy-policy/' },
+  { label: 'ADV Part 2A', href: '#' },
+  { label: 'Legal Disclaimer', href: 'https://meridianwealthllc.com/legal-disclaimer/' },
+  { label: 'ADV Part 3 - Form CRS', href: '#' },
+];
+---
+
+<footer id="connect" class="bg-ink text-white">
+  <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-[1fr_1.45fr] lg:px-8 lg:py-18">
+    <div>
+      <Image
+        src={wordmark}
+        alt="Varsity Wealth LLC"
+        widths={[220, 320, 420]}
+        sizes="(min-width: 1024px) 320px, 220px"
+        class="h-auto w-56 brightness-0 invert sm:w-72"
+      />
+      <div class="mt-8 flex gap-3">
+        <a aria-label="Facebook" href="https://www.facebook.com/" class="grid size-10 place-items-center rounded-full bg-white/8 text-white transition hover:bg-brass hover:text-ink">
+          <span class="text-xs font-bold">f</span>
+        </a>
+        <a aria-label="Instagram" href="https://www.instagram.com/" class="grid size-10 place-items-center rounded-full bg-white/8 text-white transition hover:bg-brass hover:text-ink">
+          <span class="text-xs font-bold">ig</span>
+        </a>
+        <a aria-label="X" href="https://x.com/" class="grid size-10 place-items-center rounded-full bg-white/8 text-white transition hover:bg-brass hover:text-ink">
+          <span class="text-xs font-bold">x</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="space-y-7 text-sm leading-7 text-white/68">
+      <p>
+        Advisory services offered through Meridian Wealth Management, LLC, a SEC-Registered
+        Investment Advisor. The Varsity Wealth Group at Meridian Wealth Management, LLC is a
+        team of Investment Advisor Representatives that are properly licensed or exempt from
+        registration in applicable jurisdictions. Insurance Services are offered through Varsity
+        Wealth LLC. For additional information please visit:
+        <a class="text-white underline decoration-brass/70 underline-offset-4" href="https://meridianwealthllc.com/">meridianwealthllc.com</a>.
+      </p>
+
+      <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/76">
+        {links.map((link) => (
+          <a href={link.href} class="transition hover:text-brass">{link.label}</a>
+        ))}
+      </div>
+
+      <p class="text-xs uppercase tracking-[0.18em] text-white/45">2025 Varsity Wealth LLC. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>

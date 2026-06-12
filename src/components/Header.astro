@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import { Menu, X } from '@lucide/astro';
+import wordmark from '../assets/images/varsity-wordmark.png';
+
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'Why Varsity Wealth', href: '#why-varsity' },
+  { label: 'About Us', href: '#about' },
+  { label: 'Our Process', href: '#process' },
+  { label: 'Connect', href: '#connect' },
+];
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/78 text-white shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md"
+  x-data="{ open: false }"
+>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Primary">
+    <a href="#home" class="flex items-center gap-3">
+      <Image
+        src={wordmark}
+        alt="Varsity Wealth LLC"
+        widths={[180, 240, 320]}
+        sizes="(min-width: 1024px) 240px, 180px"
+        class="h-auto w-44 brightness-0 invert sm:w-52 lg:w-60"
+      />
+    </a>
+
+    <div class="hidden items-center gap-8 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/82 lg:flex">
+      {navItems.map((item) => (
+        <a class="transition hover:text-brass" href={item.href}>{item.label}</a>
+      ))}
+    </div>
+
+    <button
+      type="button"
+      class="grid size-11 place-items-center rounded-full border border-white/18 text-white transition hover:border-brass hover:text-brass lg:hidden"
+      aria-label="Toggle navigation"
+      :aria-expanded="open.toString()"
+      @click="open = !open"
+    >
+      <Menu class="size-5" x-show="!open" />
+      <X class="size-5" x-show="open" x-cloak />
+    </button>
+  </nav>
+
+  <div class="border-t border-white/10 bg-ink/96 px-5 pb-5 lg:hidden" x-show="open" x-transition x-cloak>
+    <div class="mx-auto grid max-w-7xl gap-1 pt-4">
+      {navItems.map((item) => (
+        <a
+          class="rounded-md px-2 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white/82 transition hover:bg-white/5 hover:text-brass"
+          href={item.href}
+          @click="open = false"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>

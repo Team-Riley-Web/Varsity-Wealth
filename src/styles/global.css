@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@config "../../tailwind.config.cjs";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+  }
+
+  ::selection {
+    background: #b79a5b;
+    color: #11151c;
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+}
+
+@layer components {
+  .section-kicker {
+    @apply text-sm font-semibold uppercase tracking-[0.22em] text-brass;
+  }
+
+  .section-title {
+    @apply font-serif text-4xl leading-tight text-ink sm:text-5xl lg:text-6xl;
+  }
+}
+
+@layer utilities {
+  .reveal-start {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  .reveal-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 700ms ease, transform 700ms ease;
+  }
+}

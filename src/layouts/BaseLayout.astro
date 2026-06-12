@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+import icon from '../assets/images/varsity-icon.jpg';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Varsity Wealth LLC | Independent Fee-Only Wealth Management',
+  description = 'Varsity Wealth LLC provides fiduciary, independent fee-only wealth management and family-office-level advisory for families, entrepreneurs, and private clients.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/jpeg" href={icon.src} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-parchment text-ink antialiased">
+    <slot />
+  </body>
+</html>
