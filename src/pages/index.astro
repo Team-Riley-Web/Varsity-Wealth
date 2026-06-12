@@ -96,11 +96,12 @@ const services = [
 
       <div class="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-14 pt-36 lg:px-8 lg:pb-18">
         <div
-          class="max-w-4xl"
+          class="relative isolate max-w-4xl"
           x-data="{ shown: false }"
           x-intersect.once="shown = true"
           :class="shown ? 'reveal-in' : 'reveal-start'"
         >
+          <div class="absolute inset-x-[-2rem] bottom-[-2.5rem] top-[-3rem] -z-10 bg-[radial-gradient(ellipse_at_center,rgba(17,21,28,0.72),rgba(17,21,28,0.36)_48%,transparent_72%)] blur-xl"></div>
           <Image
             src={emblem}
             alt="Varsity Wealth emblem"
@@ -110,10 +111,10 @@ const services = [
             class="mb-7 h-auto w-44 sm:w-60 lg:w-72"
           />
           <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-brass">Independent Fee-Only Wealth Management</p>
-          <h1 class="max-w-[12ch] font-serif uppercase text-5xl leading-[0.98] text-white sm:text-7xl lg:text-[6.7rem]">
+          <h1 class="hero-copy-shadow max-w-[12ch] font-serif uppercase text-5xl leading-[0.98] text-white sm:text-7xl lg:text-[6.7rem]">
             Raising the <span class="animated-text">standard.</span>
           </h1>
-          <p class="mt-7 max-w-2xl text-lg leading-8 text-white/78 sm:text-xl">
+          <p class="hero-copy-shadow mt-7 max-w-2xl text-lg leading-8 text-white/86 sm:text-xl">
             Personalized wealth strategies aligned with your financial goals, built around fiduciary clarity, disciplined planning, and family-office-level coordination.
           </p>
           <div class="mt-9 flex flex-wrap gap-4">
