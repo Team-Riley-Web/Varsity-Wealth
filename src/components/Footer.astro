@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import { ArrowRight } from '@lucide/astro';
 import bgConnect from '../assets/images/bg-connect.png';
 import emblem from '../assets/images/varsity-emblem.png';
-import wordmark from '../assets/images/varsity-wordmark.png';
 
 const links = [
   { label: 'Privacy Policy', href: 'https://meridianwealthllc.com/privacy-policy/' },
@@ -41,42 +40,61 @@ const links = [
 </section>
 
 <footer class="bg-ink text-white">
-  <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-[1fr_1.45fr] lg:px-8 lg:py-18">
-    <div>
-      <Image
-        src={emblem}
-        alt="Varsity Wealth LLC"
-        widths={[220, 320, 420]}
-        sizes="(min-width: 1024px) 320px, 220px"
-        class="mt-5 h-auto w-56 sm:w-72"
-      />
-      <div class="mt-8 space-y-2 text-sm leading-7 text-white/72">
-        <p>(555) 214-7823</p>
-        <p>1240 Market Street, Suite 520, Denver, CO 80202</p>
+  <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-18">
+    <div class="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+      <div>
+        <Image
+          src={emblem}
+          alt="Varsity Wealth emblem"
+          widths={[64, 96, 120]}
+          sizes="(min-width: 1024px) 96px, 64px"
+          class="h-auto w-16 sm:w-20"
+        />
       </div>
-      <div class="mt-8 flex gap-3">
-        <a aria-label="Facebook" href="https://www.facebook.com/" class="luxury-transition grid size-10 place-items-center rounded-full bg-white/8 text-white hover:bg-brass hover:text-ink">
-          <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true" fill="currentColor">
-            <path d="M13.5 22v-8.1h2.7l.4-3.1h-3.1V8.8c0-.9.2-1.5 1.6-1.5h1.7V4.6c-.8-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.7-4.5 4.7v1.8H7v3.1h2.7V22h3.8Z" />
-          </svg>
-        </a>
-        <a aria-label="Instagram" href="https://www.instagram.com/" class="luxury-transition grid size-10 place-items-center rounded-full bg-white/8 text-white hover:bg-brass hover:text-ink">
-          <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4.5" y="4.5" width="15" height="15" rx="4" />
-            <circle cx="12" cy="12" r="3.5" />
-            <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-          </svg>
-        </a>
-        <a aria-label="X" href="https://x.com/" class="luxury-transition grid size-10 place-items-center rounded-full bg-white/8 text-white hover:bg-brass hover:text-ink">
-          <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 6l12 12" />
-            <path d="M18 6 6 18" />
-          </svg>
-        </a>
+
+      <div class="grid gap-10 lg:grid-cols-3">
+        <div class="space-y-2 text-sm leading-7 text-white/72">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brass">Contact</p>
+          <p>(555) 214-7823</p>
+          <p>1240 Market Street, Suite 520, Denver, CO 80202</p>
+        </div>
+
+        <div class="space-y-2 text-sm leading-7 text-white/72">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brass">Navigation</p>
+          <div class="grid gap-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/76">
+            {links.map((link) => (
+              <a href={link.href} class="luxury-transition hover:text-brass">{link.label}</a>
+            ))}
+          </div>
+        </div>
+
+        <div class="space-y-2 text-sm leading-7 text-white/72">
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brass">Social</p>
+          <div class="mt-3 flex gap-3">
+            <a aria-label="Facebook" href="https://www.facebook.com/" class="luxury-transition grid size-10 place-items-center rounded-full bg-white/8 text-white hover:bg-brass hover:text-ink">
+              <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true" fill="currentColor">
+                <path d="M13.5 22v-8.1h2.7l.4-3.1h-3.1V8.8c0-.9.2-1.5 1.6-1.5h1.7V4.6c-.8-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.7-4.5 4.7v1.8H7v3.1h2.7V22h3.8Z" />
+              </svg>
+            </a>
+            <a aria-label="Instagram" href="https://www.instagram.com/" class="luxury-transition grid size-10 place-items-center rounded-full bg-white/8 text-white hover:bg-brass hover:text-ink">
+              <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4.5" y="4.5" width="15" height="15" rx="4" />
+                <circle cx="12" cy="12" r="3.5" />
+                <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a aria-label="X" href="https://x.com/" class="luxury-transition grid size-10 place-items-center rounded-full bg-white/8 text-white hover:bg-brass hover:text-ink">
+              <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6l12 12" />
+                <path d="M18 6 6 18" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="space-y-7 text-sm leading-7 text-white/68">
+    <div class="mt-10 border-t border-white/10 pt-8 text-sm leading-7 text-white/58">
       <p>
         Advisory services offered through Meridian Wealth Management, LLC, a SEC-Registered
         Investment Advisor. The Varsity Wealth Group at Meridian Wealth Management, LLC is a
@@ -85,14 +103,7 @@ const links = [
         Wealth LLC. For additional information please visit:
         <a class="text-white underline decoration-brass/70 underline-offset-4" href="https://meridianwealthllc.com/">meridianwealthllc.com</a>.
       </p>
-
-      <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/76">
-        {links.map((link) => (
-          <a href={link.href} class="luxury-transition hover:text-brass">{link.label}</a>
-        ))}
-      </div>
-
-      <p class="text-xs uppercase tracking-[0.18em] text-white/45">2025 Varsity Wealth LLC. All Rights Reserved.</p>
+      <p class="mt-4 text-xs uppercase tracking-[0.18em] text-white/42">2025 Varsity Wealth LLC. All Rights Reserved.</p>
     </div>
   </div>
 </footer>
