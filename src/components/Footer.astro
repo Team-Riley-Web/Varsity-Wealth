@@ -5,10 +5,11 @@ import bgConnect from '../assets/images/bg-connect.png';
 import emblem from '../assets/images/varsity-emblem.png';
 
 const links = [
-  { label: 'Privacy Policy', href: 'https://meridianwealthllc.com/privacy-policy/' },
-  { label: 'ADV Part 2A', href: '#' },
-  { label: 'Legal Disclaimer', href: 'https://meridianwealthllc.com/legal-disclaimer/' },
-  { label: 'ADV Part 3 - Form CRS', href: '#' },
+  { label: 'Home', href: '#home' },
+  { label: 'Why', href: '#why-varsity' },
+  { label: 'About', href: '#about' },
+  { label: 'Our Process', href: '#process' },
+  { label: 'Connect', href: '#connect' },
 ];
 ---
 
@@ -46,14 +47,14 @@ const links = [
         <Image
           src={emblem}
           alt="Varsity Wealth emblem"
-          widths={[64, 96, 120]}
-          sizes="(min-width: 1024px) 96px, 64px"
-          class="h-auto w-16 sm:w-20"
+          widths={[150, 190]}
+          sizes="150px"
+          class="h-auto w-[150px] max-w-none"
         />
       </div>
 
       <div class="grid gap-10 lg:grid-cols-3">
-        <div class="space-y-2 text-sm leading-7 text-white/72">
+        <div class="space-y-1 text-sm leading-6 text-white/72">
           <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brass">Contact</p>
           <p>(555) 214-7823</p>
           <p>1240 Market Street, Suite 520, Denver, CO 80202</p>
