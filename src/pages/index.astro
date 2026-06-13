@@ -98,7 +98,6 @@ const services = [
       </video>
       <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(17,21,28,0.9),rgba(17,21,28,0.58)_48%,rgba(17,21,28,0.22))]"></div>
       <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent"></div>
-
       <div class="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-14 pt-36 lg:px-8 lg:pb-18">
         <div
           class="relative isolate max-w-4xl"
@@ -107,21 +106,6 @@ const services = [
           :class="shown ? 'reveal-in' : 'reveal-start'"
         >
           <div class="absolute inset-x-[-2rem] bottom-[-2.5rem] top-[-3rem] -z-10 bg-[radial-gradient(ellipse_at_center,rgba(17,21,28,0.72),rgba(17,21,28,0.36)_48%,transparent_72%)] blur-xl"></div>
-          <div
-            class="hero-emblem-start mb-7 w-44 sm:w-60 lg:w-72"
-            x-data="{ shown: false }"
-            x-intersect.once="shown = true"
-            :class="shown ? 'hero-emblem-in' : 'hero-emblem-start'"
-          >
-            <Image
-              src={emblem}
-              alt="Varsity Wealth emblem"
-              widths={[220, 360, 520]}
-              sizes="(min-width: 1024px) 360px, 220px"
-              priority
-              class="h-auto w-full"
-            />
-          </div>
           <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-brass">Independent Fee-Only Wealth Management</p>
           <h1 class="hero-copy-shadow max-w-[12ch] font-serif uppercase text-5xl leading-[0.98] text-white sm:text-7xl lg:text-[6.7rem]">
             Raising the <span class="animated-text">standard.</span>
