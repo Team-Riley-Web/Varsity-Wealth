@@ -342,7 +342,7 @@ const services = [
 
         <div class="mt-12 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch">
           <div
-            class="relative h-full"
+            class="relative aspect-[4/5] overflow-hidden lg:aspect-auto lg:h-full"
             x-data="{ shown: false }"
             x-intersect.once="shown = true"
             :class="shown ? 'reveal-in' : 'reveal-start'"
@@ -352,12 +352,14 @@ const services = [
               alt="Refined city architecture symbolizing legacy wealth stewardship"
               widths={[520, 720, 960]}
               sizes="(min-width: 1024px) 34vw, 100vw"
-              class="h-full min-h-[28rem] w-full object-cover shadow-soft"
+              class="absolute inset-0 size-full object-cover shadow-soft"
             />
-            <div class="absolute left-6 bottom-6 inline-flex items-center gap-4 bg-ink/90 px-4 py-3 text-white shadow-panel backdrop-blur-sm">
-              <ShieldCheck class="size-8 shrink-0 text-brass" stroke-width={1.3} />
-              <div>
-                <p class="text-xs font-semibold uppercase text-white/78">Capital is the foundation<br>Legacy is the masterwork.</p>
+            <div class="absolute inset-x-0 bottom-6 flex justify-center">
+              <div class="inline-flex items-center gap-4 bg-ink/90 px-4 py-3 text-white shadow-panel backdrop-blur-sm">
+                <ShieldCheck class="size-8 shrink-0 text-brass" stroke-width={1.3} />
+                <div>
+                  <p class="text-xs font-semibold uppercase text-white/78">Capital is the foundation<br>Legacy is the masterwork.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -368,7 +370,7 @@ const services = [
             x-intersect.once="shown = true"
             :class="shown ? 'reveal-in' : 'reveal-start'"
           >
-            <article class="luxury-card flex h-full flex-col bg-white p-8 shadow-soft hover:shadow-panel sm:p-10">
+            <article class="luxury-card flex h-full flex-col bg-white p-10 md:p-16 shadow-soft hover:shadow-panel">
               <p class="section-kicker">The Sentinel of Your Private Legacy</p>
               <h2 class="font-serif text-4xl leading-[1.08] text-ink">Comprehensive advisory for multi-generational families.</h2>
               <p class="mt-7 text-lg leading-8 text-ink">
