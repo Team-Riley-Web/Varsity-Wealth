@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @config "../../tailwind.config.cjs";
 
+@font-face {
+  font-family: "Gorgeouspen Demo";
+  src: url("../assets/fonts/gorgeouspen-demo.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -78,6 +86,14 @@
     animation: animated_text 10s ease-in-out infinite;
     -moz-animation: animated_text 10s ease-in-out infinite;
     -webkit-animation: animated_text 10s ease-in-out infinite;
+  }
+
+  .script-accent {
+    font-family: "Gorgeouspen Demo", cursive;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
   }
 
   .hero-copy-shadow {
