@@ -22,15 +22,33 @@
 
 @layer components {
   .section-kicker {
-    @apply text-sm font-semibold uppercase tracking-[0.22em] text-brass;
+    @apply mb-2.5 block text-sm font-semibold uppercase tracking-[0.22em] text-brass;
   }
 
   .section-title {
-    @apply font-serif text-4xl leading-tight text-ink sm:text-5xl lg:text-6xl;
+    @apply font-serif text-4xl leading-[1.08] text-ink sm:text-5xl lg:text-6xl lg:leading-[65px];
   }
 }
 
 @layer utilities {
+  .luxury-transition {
+    transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+    transition-duration: 420ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .luxury-card {
+    will-change: transform;
+    transition-property: background-color, box-shadow, transform;
+    transition-duration: 480ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .luxury-card:hover {
+    transform: translateY(-0.45rem);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.24);
+  }
+
   @keyframes animated_text {
     0% {
       background-position: 0% 50%;
@@ -46,7 +64,7 @@
   }
 
   .animated-text {
-    background: linear-gradient(-45deg, #8f6f2f, #b79a5b, #f0d27a, #a8843d);
+    background: linear-gradient(-45deg, #bf9540, #b79a5b, #f0d27a, #bc9342);
     background-size: 300%;
     background-clip: text;
     -webkit-background-clip: text;

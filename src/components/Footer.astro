@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { ArrowRight } from '@lucide/astro';
+import bgConnect from '../assets/images/bg-connect.png';
 import wordmark from '../assets/images/varsity-wordmark.png';
 
 const links = [
@@ -11,22 +12,27 @@ const links = [
 ];
 ---
 
-<section id="connect" class="border-b border-white/12 bg-ink px-5 py-20 text-white lg:px-8 lg:py-24">
+<section
+  id="connect"
+  class="relative isolate overflow-hidden border-b border-white/12 px-5 py-24 text-white lg:px-8 lg:py-28"
+  style={`background-image: linear-gradient(rgba(17, 21, 28, 0.58), rgba(17, 21, 28, 0.72)), url(${bgConnect.src}); background-size: cover; background-position: center;`}
+>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(183,154,91,0.12),transparent_52%)]"></div>
   <div
-    class="mx-auto flex max-w-4xl flex-col items-center text-center"
+    class="relative mx-auto flex max-w-4xl flex-col items-center py-4 text-center lg:py-8"
     x-data="{ shown: false }"
     x-intersect.once="shown = true"
     :class="shown ? 'reveal-in' : 'reveal-start'"
   >
     <p class="section-kicker">Connect</p>
-    <h2 class="mt-4 max-w-2xl font-serif text-5xl leading-tight text-white sm:text-6xl lg:text-7xl">
+    <h2 class="max-w-2xl font-serif text-5xl leading-[1.08] text-white sm:text-6xl lg:text-7xl">
       Raising the standard, <em class="text-brass">together.</em>
     </h2>
-    <p class="mt-6 max-w-2xl text-lg leading-8 text-white/68">
+    <p class="mt-6 max-w-2xl text-lg leading-8 text-white/76">
       Personalized wealth strategies begin with a conversation, fiduciary clarity, disciplined planning, and family-office-level coordination from the first meeting.
     </p>
     <!-- TODO: Replace with client contact destination when provided. -->
-    <a href="#" class="mt-8 inline-flex min-h-12 items-center gap-2 bg-brass px-7 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-white">
+    <a href="#" class="luxury-transition mt-9 inline-flex min-h-12 items-center gap-2 bg-brass px-7 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-ink hover:bg-white">
       Contact Us
       <ArrowRight class="size-4" />
     </a>
@@ -44,14 +50,23 @@ const links = [
         class="h-auto w-56 brightness-0 invert sm:w-72"
       />
       <div class="mt-8 flex gap-3">
-        <a aria-label="Facebook" href="https://www.facebook.com/" class="grid size-10 place-items-center rounded-full bg-white/8 text-white transition hover:bg-brass hover:text-ink">
-          <span class="text-xs font-bold">f</span>
+        <a aria-label="Facebook" href="https://www.facebook.com/" class="luxury-transition grid size-10 place-items-center rounded-full bg-white/8 text-white hover:bg-brass hover:text-ink">
+          <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true" fill="currentColor">
+            <path d="M13.5 22v-8.1h2.7l.4-3.1h-3.1V8.8c0-.9.2-1.5 1.6-1.5h1.7V4.6c-.8-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.7-4.5 4.7v1.8H7v3.1h2.7V22h3.8Z" />
+          </svg>
         </a>
-        <a aria-label="Instagram" href="https://www.instagram.com/" class="grid size-10 place-items-center rounded-full bg-white/8 text-white transition hover:bg-brass hover:text-ink">
-          <span class="text-xs font-bold">ig</span>
+        <a aria-label="Instagram" href="https://www.instagram.com/" class="luxury-transition grid size-10 place-items-center rounded-full bg-white/8 text-white hover:bg-brass hover:text-ink">
+          <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4.5" y="4.5" width="15" height="15" rx="4" />
+            <circle cx="12" cy="12" r="3.5" />
+            <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+          </svg>
         </a>
-        <a aria-label="X" href="https://x.com/" class="grid size-10 place-items-center rounded-full bg-white/8 text-white transition hover:bg-brass hover:text-ink">
-          <span class="text-xs font-bold">x</span>
+        <a aria-label="X" href="https://x.com/" class="luxury-transition grid size-10 place-items-center rounded-full bg-white/8 text-white hover:bg-brass hover:text-ink">
+          <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 6l12 12" />
+            <path d="M18 6 6 18" />
+          </svg>
         </a>
       </div>
     </div>
@@ -68,7 +83,7 @@ const links = [
 
       <div class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/76">
         {links.map((link) => (
-          <a href={link.href} class="transition hover:text-brass">{link.label}</a>
+          <a href={link.href} class="luxury-transition hover:text-brass">{link.label}</a>
         ))}
       </div>
 
