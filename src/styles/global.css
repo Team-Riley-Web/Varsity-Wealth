@@ -37,6 +37,12 @@
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  .learn-more-transition {
+    transition-property: color, transform, text-decoration-color;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
   .luxury-card {
     will-change: transform;
     transition-property: background-color, box-shadow, transform;
@@ -76,6 +82,23 @@
 
   .hero-copy-shadow {
     text-shadow: 0 2px 18px rgba(0, 0, 0, 0.56), 0 1px 2px rgba(0, 0, 0, 0.42);
+  }
+
+  .hero-emblem-start {
+    opacity: 0;
+    transform: translateY(18px) scale(0.9);
+    filter: blur(10px);
+  }
+
+  .hero-emblem-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    transition:
+      opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
+      filter 900ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 120ms;
   }
 
   .reveal-start {
